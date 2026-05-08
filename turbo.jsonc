@@ -19,7 +19,7 @@
 			"outputs": ["out/**"]
 		},
 		"frontend#generate": {
-			"dependsOn": ["^export"],
+			"dependsOn": ["^export", "backend#export"],
 			"inputs": ["kubb.config.ts"],
 			"outputLogs": "new-only",
 			"outputs": ["src/lib/api/generated/**"]
