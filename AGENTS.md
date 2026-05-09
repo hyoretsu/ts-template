@@ -1,4 +1,9 @@
-# Global
+# Global Guidelines
+
+This project uses Serena. Lookup `SERENA.md`/`@SERENA.md` for the full protocol.
+
+- Never put multiple components in the same file unless the file is intentionally using the Composition pattern. When a parent component needs private child components, turn it into a folder with `index.tsx`, move each child component to its own file, and place shared local types in `types.ts`.
+- Always add ShadCN components through the ShadCN CLI.
 
 ## Component Architecture (Frontend)
 
