@@ -1,6 +1,16 @@
 # Global Guidelines
 
-This project uses Serena. Lookup `SERENA.md`/`@SERENA.md` for the full protocol.
+## Serena — Required When Starting a Session
+
+This project uses Serena. The full protocol is in `SERENA.md`/`@SERENA.md`.
+
+**When starting any session, run these steps in order:**
+
+1. Call `mcp__serena__initial_instructions` to read the Serena manual.
+2. Call `mcp__serena__check_onboarding_performed`. If onboarding has not been performed, call `mcp__serena__onboarding`.
+3. Before any work on code files, make Serena tools available. If Serena tools are not already visible in the active tool list, load them through `ToolSearch` first. Tool names may or may not have the `mcp__serena__` prefix depending on the agent/runtime.
+
+Serena is PRIMARY for all TypeScript/TSX code. Built-in Read/Edit/Grep are SECONDARY — only use them when Serena fails or the target is not code.
 
 - Never put multiple components in the same file unless the file is intentionally using the Composition pattern. When a parent component needs private child components, turn it into a folder with `index.tsx`, move each child component to its own file, and place shared local types in `types.ts`.
 - Always add ShadCN components through the ShadCN CLI.
