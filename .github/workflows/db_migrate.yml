@@ -1,0 +1,23 @@
+name: DB migrate
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - packages/sql/src/migrations/**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install dependencies
+        run: bun i
+      - name: Apply all pending migrations to the database
+        run: bun turbo -F sql migrate:deploy
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
